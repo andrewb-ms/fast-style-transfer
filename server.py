@@ -42,7 +42,7 @@ def tensorflow_la_muse():
             #flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            shutil.rmtree('/msshared/tensorflow/*')
+            #shutil.rmtree('/msshared/tensorflow/*')
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
