@@ -16,14 +16,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def root():
     return 'Server is up'
 
-
-@app.route('/tensorflow_la_muse_depracated')
-def tensorflow_la_muse():
-    #execfile("python /home/adm101/fast-style-transfer/evaluate.py --checkpoint /msshared/models/fastmodels/la_muse.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/")
-    #call(["python", "/home/adm101/fast-style-transfer/evaluate.py --checkpoint /msshared/models/fastmodels/la_muse.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/"])
-    os.system("python /home/adm101/fast-style-transfer/evaluate.py --checkpoint /msshared/models/fastmodels/la_muse.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/")
-    return 'Server is up'
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -47,4 +39,3 @@ def tensorflow_la_muse():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
     return 'Done'
-
