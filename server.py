@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, url_for #, flash
 from werkzeug.utils import secure_filename
 from subprocess import call
 import os
-#import shutil
+import shutil
 app = Flask(__name__)
 
 
@@ -34,7 +34,7 @@ def tensorflow_la_muse():
             #flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            #shutil.rmtree('/msshared/tensorflow/*')
+            shutil.rmtree('/msshared/tensorflow/*')
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
