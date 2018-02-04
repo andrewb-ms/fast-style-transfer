@@ -41,6 +41,6 @@ def tensorflow_la_muse():
                 os.remove(f)
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            os.system('python evaluate.py --checkpoint /msshared/models/fastmodels/la_muse.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/')
+            os.system('sh runtensorflow.sh')
 
     return 'Done'
