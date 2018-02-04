@@ -3,6 +3,7 @@ from werkzeug.utils import secure_filename
 from subprocess import call
 import os
 import shutil
+import glob
 app = Flask(__name__)
 
 
@@ -34,7 +35,10 @@ def tensorflow_la_muse():
             #flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            shutil.rmtree('/msshared/tensorflow/*')
+            #shutil.rmtree('/msshared/tensorflow/*')
+            files = glob.glob('/msshared/tensorflow/*')
+            for f in files:
+                os.remove(f)
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
