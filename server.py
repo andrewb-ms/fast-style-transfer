@@ -2,6 +2,7 @@ from flask import Flask, request, redirect, url_for #, flash
 from werkzeug.utils import secure_filename
 from subprocess import call
 import os
+import shutil
 app = Flask(__name__)
 
 
@@ -28,7 +29,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/tensorflow_la_muse', methods=['POST'])
-def upload_file():
+def tensorflow_la_muse():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -41,6 +42,8 @@ def upload_file():
             #flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
+            shutil.rmtree('/msshared/tensorflow/*')
+            
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
