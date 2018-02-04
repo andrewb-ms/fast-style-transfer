@@ -1,7 +1,15 @@
-from flask import Flask
+from flask import Flask, request, redirect, url_for
+from werkzeug.utils import secure_filename
 from subprocess import call
 import os
 app = Flask(__name__)
+
+
+UPLOAD_FOLDER = '/msshared/tensorflow/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def root():
