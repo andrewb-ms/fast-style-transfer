@@ -47,7 +47,7 @@ def tensorflow_la_muse():
     return 'Done'
 
 @app.route('/tensorflow/scream', methods=['POST'])
-def tensorflow_la_muse():
+def tensorflow_scream():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
