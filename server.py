@@ -42,6 +42,6 @@ def tensorflow_la_muse():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.system('sh runtensorflow.sh')
-            return send_file(os.path.join('/msshared/tfoutput/', filename), mimetype='image/gif')
+            return send_file(os.path.join('/msshared/tfoutput/', filename), mimetype='image/' . os.path.splitext(filename)[1])
 
     return 'Done'
