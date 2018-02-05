@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def root():
-    return 'Server is up'
+    return 'Server is up.  Try /tensorflow/{la_muse,scream,wave,udnie}'
 
 def allowed_file(filename):
     return '.' in filename and \
