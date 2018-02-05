@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def root():
-    return 'Server is up.  Try /tensorflow/{la_muse,scream,wave,udnie}'
+    return 'Server is up.  Try /tensorflow/{la_muse,scream,wave,udnie,rain_princess}'
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -117,6 +117,31 @@ def tensorflow_udnie():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.system('python evaluate.py --checkpoint /msshared/models/fastmodels/udnie.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/')
+            return send_file(os.path.join('/msshared/tfoutput/', filename), mimetype='image/' + os.path.splitext(filename)[1][1:])
+
+    return 'Done'
+
+@app.route('/tensorflow/rain_princess', methods=['POST'])
+def tensorflow_rain_princess():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            #flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            #flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            #shutil.rmtree('/msshared/tensorflow/*')
+            files = glob.glob('/msshared/tensorflow/*')
+            for f in files:
+                os.remove(f)
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.system('python evaluate.py --checkpoint /msshared/models/fastmodels/rain_princess.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/')
             return send_file(os.path.join('/msshared/tfoutput/', filename), mimetype='image/' + os.path.splitext(filename)[1][1:])
 
     return 'Done'
