@@ -89,6 +89,9 @@ def tensorflow_wave():
             files = glob.glob('/msshared/tensorflow/*')
             for f in files:
                 os.remove(f)
+            files = glob.glob('/msshared/tfoutput/*')
+            for f in files:
+                os.remove(f)
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             os.system('python evaluate.py --checkpoint /msshared/models/fastmodels/wave.ckpt --in-path /msshared/tensorflow/ --out-path /msshared/tfoutput/')
@@ -112,6 +115,9 @@ def tensorflow_udnie():
         if file and allowed_file(file.filename):
             #shutil.rmtree('/msshared/tensorflow/*')
             files = glob.glob('/msshared/tensorflow/*')
+            for f in files:
+                os.remove(f)
+            files = glob.glob('/msshared/tfoutput/*')
             for f in files:
                 os.remove(f)
             filename = secure_filename(file.filename)
