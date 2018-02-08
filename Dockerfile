@@ -56,4 +56,6 @@ COPY . /app
 
 WORKDIR /app
 
+ENTRYPOINT sh runserver.sh
+
 EXPOSE 5000
