@@ -49,3 +49,9 @@ RUN pip --no-cache-dir install \
 # --- ~ DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
 
 RUN pip install Flask
+
+RUN apt-get install -y python-pip python-dev build-essential
+
+COPY . /app
+
+WORKDIR /app
