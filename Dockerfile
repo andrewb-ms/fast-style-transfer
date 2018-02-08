@@ -55,3 +55,5 @@ RUN apt-get install -y python-pip python-dev build-essential
 COPY . /app
 
 WORKDIR /app
+
+EXPOSE 5000
