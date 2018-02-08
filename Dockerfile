@@ -47,3 +47,5 @@ RUN pip --no-cache-dir install \
 RUN pip --no-cache-dir install \
     http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.0.0-cp27-none-linux_x86_64.whl
 # --- ~ DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
+
+RUN pip install Flask
