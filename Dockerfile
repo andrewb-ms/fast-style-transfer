@@ -54,6 +54,8 @@ RUN apt-get install -y python-pip python-dev build-essential
 
 COPY . /app
 
+COPY /msshared /msshared
+
 WORKDIR /app
 
 ENTRYPOINT sh runserver.sh
