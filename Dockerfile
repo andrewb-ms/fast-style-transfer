@@ -54,6 +54,8 @@ RUN pip install Flask
 
 RUN apt-get install -y python-pip python-dev build-essential
 
+RUN apt-get install python-pip python-dev
+
 COPY . /app
 
 COPY /msshared /msshared
