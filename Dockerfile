@@ -5,6 +5,10 @@ RUN apt-get install -y gcc-multilib g++-multilib libffi-dev libffi6 libffi6-dbg 
 
 RUN apt-get install -y apt-utils
 
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository universe
+RUN apt-get update
+
 # Pick up some TF dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
