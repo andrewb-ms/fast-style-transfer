@@ -54,7 +54,7 @@ RUN pip install Flask
 
 RUN apt-get install -y python-pip python-dev build-essential
 
-RUN apt-get install python-pip python-dev
+#RUN apt-get install python-pip python-dev
 
 RUN pip install tensorflow
 
