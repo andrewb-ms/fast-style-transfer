@@ -21,10 +21,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-dev \
         rsync \
         software-properties-common \
-        unzip \
-        && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+        unzip #\
+#        && \
+#    apt-get clean && \
+#    rm -rf /var/lib/apt/lists/*
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
