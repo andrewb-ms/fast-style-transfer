@@ -66,6 +66,8 @@ RUN apt-get install -y ffmpeg
 
 COPY . /app
 
+RUN mkdir /msshared
+
 COPY /msshared /msshared
 
 WORKDIR /app
