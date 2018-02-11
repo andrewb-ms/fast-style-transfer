@@ -62,7 +62,7 @@ RUN apt-get install -y python-pip python-dev build-essential
 
 RUN pip install tensorflow
 
-RUN apt-get -y install ffmpeg
+RUN apt-get install -y ffmpeg
 
 COPY . /app
 
