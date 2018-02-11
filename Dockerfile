@@ -76,6 +76,6 @@ WORKDIR /app
 
 EXPOSE 5000
 
-CMD echo 'Starting...'
+#CMD echo 'Starting...'
 
-CMD sh runserver.sh
+ENTRYPOINT sh runserver.sh
