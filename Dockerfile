@@ -78,4 +78,4 @@ EXPOSE 5000
 
 #CMD echo 'Starting...'
 
-ENTRYPOINT sh runserver.sh
+ENTRYPOINT ["sh", "runserver.sh"]
