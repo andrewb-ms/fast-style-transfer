@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python-dev \
         rsync \
         software-properties-common \
-        unzip #\
+        unzip 
 #        && \
 #    apt-get clean && \
 #    rm -rf /var/lib/apt/lists/*
