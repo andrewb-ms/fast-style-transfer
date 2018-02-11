@@ -72,7 +72,8 @@ RUN mkdir /msshared
 
 WORKDIR /app
 
-ENTRYPOINT sh runserver.sh
+
 
 EXPOSE 5000
 
+CMD sh runserver.sh
